@@ -1,0 +1,12 @@
+section.pg-list
+  h2.accessible-hide Pokémons list
+  .pg-list__content
+    .pg-list__item(v-for="pokemon in pokemonsList", @click="goDetail(pokemon.order)")
+      .pg-list__item__info
+        img.pg-list__item__img(:alt="`Imagen de ${ pokemon.name }`",
+          :src="pokemon.image")
+        p.pg-list__item__title {{ pokemon.name | formatText }}
+
+  .pg-list__footer
+    pg-button(v-if="pokemonsList.length < numPokemons",
+      @clicked="getPokemons") View more

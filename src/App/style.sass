@@ -1,0 +1,63 @@
+@charset 'utf-8'
+
+*
+  box-sizing: border-box
+
+body
+  --primary-color: #d63031
+  --text-color: #333333
+  --disabled-color: #999999
+  --border-color: #cbcbcb
+  --border-radius: 8px
+
+  font-family: Avenir, Helvetica, Arial, sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+  font-size: 16px
+  color: var(--text-color)
+  text-align: center
+  margin: 0
+
+a
+  color: var(--primary-color)
+
+img
+  max-width: 100%
+
+ul
+  list-style-type: none
+  padding: 0
+
+li
+  display: inline-block
+  margin: 0 10px
+
+#app
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+
+main
+  flex: 1
+
+header
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 1em 0.5em
+  border-bottom: 0.5em solid var(--primary-color)
+
+  > *
+    margin: 0 0.5rem
+
+  a
+    flex-basis: 3em
+    flex-shrink: 0
+
+// Helpers
+.accessible-hide
+    position: absolute
+    height: 0
+    overflow: hidden
+    pointer-events: none

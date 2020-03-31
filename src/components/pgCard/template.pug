@@ -1,0 +1,19 @@
+.pg-card(:class=" { 'pg-card__item--double' : double }")
+  template(v-if="!double")
+    h3.pg-card__header {{ mainTitle }}
+    .pg-card__content
+      template(v-if="items.length > 0")
+        .pg-card__data(v-for="item in items")
+          span.pg-card__label(v-if="item.label") {{ item.label | formatText }}: 
+          span.pg-card__desc {{ (item.value || item) | formatText }}
+      .pg-card__empty(v-else) - No items -
+
+  template(v-else, v-for="item in items")
+    .pg-card__wrapper
+      h3.pg-card__header {{ item.title }}
+      .pg-card__content
+        template(v-if="item.items.length > 0")
+          .pg-card__data(v-for="item in item.items")
+            span.pg-card__label(v-if="item.label") {{ item.label | formatText }}: 
+            span.pg-card__desc {{ (item.value || item) | formatText }}
+        .pg-card__empty(v-else) - No items -

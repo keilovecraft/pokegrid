@@ -1,0 +1,21 @@
+section.pg-detail
+  .pg-detail__header
+    pg-button.pg-button--absolute(@clicked="goBack") <
+    h2 {{`#${pokemon.order}`}} {{ pokemon.name | formatText }}
+  .pg-detail__content
+    .pg-detail__images
+        img.pg-detail__img(v-for="img, name in pokemon.images",
+          v-if="img",
+          :alt="`Imagen de ${ pokemon.name }: ${ name }`",
+          :src="img"
+        )
+
+    .pg-detail__features
+      pg-card(v-for="feature, index in pokemon.features",
+        :mainTitle="feature.title",
+        :double="feature.double",
+        :items="feature.items",
+        :key="`card-${index}`"
+      )
+  .pg-detail__footer
+    pg-button(@clicked="goBack") Go back

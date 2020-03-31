@@ -1,0 +1,44 @@
+// Añadir aquí el número de pokemons
+$numPokemons: 964
+
+.pg-list
+  &__content
+    display: flex
+    flex-wrap: wrap
+
+  &__footer
+    margin: 2em
+
+  &__item
+    $root-node: &
+
+    display: flex
+    flex-basis: 100%
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    &:hover
+      #{$root-node}__img
+        filter: drop-shadow(4px 4px var(--text-color))
+        transition: filter 0.25s linear
+
+    @for $i from 1 through $numPokemons
+      &:nth-child(#{$i})
+        background-color: rgb(random(255),random(255),random(255))
+
+    &:before
+      content: ''
+      float: left
+      padding-top: 100%
+
+    &__title
+      margin: 0.5em 0 0
+      font-weight: 700
+
+    // Media queries
+    @media (min-width: 320px)
+      flex-basis: 50%
+    @media (min-width: 480px)
+      flex-basis: 33.33%
+    @media (min-width: 768px)
+      flex-basis: 25%
